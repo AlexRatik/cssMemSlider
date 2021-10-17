@@ -6,6 +6,11 @@
 .wrapper {
     width: 100vw;
     height: 100vh;
+    background: linear-gradient(
+        90deg,
+        rgb(91, 149, 90) 0%,
+        rgb(255, 255, 255) 100%
+    );
 }
 .slider__container-wrapper {
     width: 60%;
@@ -84,7 +89,7 @@
     background-color: transparent;
 }
 .controls label {
-    width: 18%;
+    width: 20%;
     height: 100%;
     background-color: transparent;
     border-radius: 50% 50% 0 50%;
@@ -96,11 +101,14 @@
 .controls label:after {
     display: block;
     content: "";
-    border: calc(1rem / 16) solid red;
+    border: calc(3rem / 16) solid rgba(129, 36, 36, 0.664);
     border-radius: 50% 50% 0 50%;
     width: 2rem;
     height: 2rem;
     transition: all ease 0.5s;
+}
+.controls label:hover::after {
+    border-color: red;
 }
 
 #input1:checked
@@ -110,7 +118,36 @@
     border-color: blue;
     background-color: blue;
 }
-
+#input1:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(1):hover::after {
+    opacity: 0.5;
+}
+#input2:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(2):hover::after {
+    opacity: 0.5;
+}
+#input3:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(3):hover::after {
+    opacity: 0.5;
+}
+#input4:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(4):hover::after {
+    opacity: 0.5;
+}
+#input5:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(5):hover::after {
+    opacity: 0.5;
+}
 #input1:checked ~ .slider__container-wrapper .slider__container,
 #input1:checked
     ~ .text_and_controls-wrapper
@@ -224,4 +261,73 @@
     display: flex;
 
     justify-content: space-between;
+}
+
+/* Adaptive */
+
+@media (max-width: 1100px) {
+    .slider__container-wrapper {
+        height: 50%;
+    }
+    .text__container-wrapper {
+        width: 50%;
+        font-size: 1.5rem;
+    }
+    .controls {
+        width: 50%;
+    }
+    .controls label {
+        padding: 0.5rem;
+    }
+    .controls label:after {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .slider__container-wrapper {
+        height: 40%;
+    }
+    .controls label::after {
+        border: calc(1rem / 16) solid rgba(129, 36, 36, 0.664);
+    }
+    .text {
+        padding-left: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .slider__container-wrapper {
+        height: 40%;
+    }
+    .text__container-wrapper {
+        font-size: 1rem;
+    }
+    .controls label:after {
+        width: 1rem;
+        height: 1rem;
+    }
+    .text {
+        padding-left: 0rem;
+    }
+}
+
+@media (max-width: 440px) {
+    .slider__container-wrapper {
+        height: 35%;
+        margin: 15vh auto 1vh;
+    }
+
+    .text_and_controls-wrapper {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .text__container-wrapper {
+        width: 100%;
+    }
+
+    .controls {
+        width: 65%;
+    }
 }
