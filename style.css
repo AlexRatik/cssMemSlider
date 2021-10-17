@@ -52,7 +52,7 @@
 .text__container-wrapper {
     height: 5%;
     width: 60%;
-    margin: 0 auto 2vh;
+    /* margin: 0 auto 2vh; */
     overflow: hidden;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
@@ -68,21 +68,24 @@
     padding-left: 30px;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: all ease 0.5s;
 }
 
 /* Controls */
 
 .controls {
-    width: 30%;
+    width: 40%;
     height: 5%;
-    margin: 0 auto 2vh;
+    /* margin: 0 auto 2vh; */
     position: relative;
     display: flex;
     align-items: center;
+    background-color: transparent;
 }
 .controls label {
-    width: 60px;
-    height: 60px;
+    width: 18%;
+    height: 100%;
     background-color: transparent;
     border-radius: 50% 50% 0 50%;
     position: relative;
@@ -96,59 +99,130 @@
     content: "";
     border: 1px solid red;
     border-radius: 50% 50% 0 50%;
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     transition: all ease 0.5s;
 }
 
-#input1:checked ~ .controls .control:nth-child(1)::after {
+#input1:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(1)::after {
     border-color: blue;
     background-color: blue;
 }
 
 #input1:checked ~ .slider__container-wrapper .slider__container,
-#input1:checked ~ .text__container-wrapper .text__container {
+#input1:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container {
     margin-left: 0;
 }
-
-#input2:checked ~ .controls .control:nth-child(2)::after {
+#input1:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container
+    .text:nth-child(1) {
+    opacity: 1;
+}
+#input2:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(2)::after {
     border-color: blue;
     background-color: blue;
 }
 #input2:checked ~ .slider__container-wrapper .slider__container,
-#input2:checked ~ .text__container-wrapper .text__container {
+#input2:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container {
     margin-left: -100%;
 }
-
-#input3:checked ~ .controls .control:nth-child(3)::after {
+#input2:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container
+    .text:nth-child(2) {
+    opacity: 1;
+}
+#input3:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(3)::after {
     border-color: blue;
     background-color: blue;
 }
 #input3:checked ~ .slider__container-wrapper .slider__container,
-#input3:checked ~ .text__container-wrapper .text__container {
+#input3:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container {
     margin-left: -200%;
 }
-
-#input4:checked ~ .controls .control:nth-child(4)::after {
+#input3:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container
+    .text:nth-child(3) {
+    opacity: 1;
+}
+#input4:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(4)::after {
     border-color: blue;
     background-color: blue;
 }
 #input4:checked ~ .slider__container-wrapper .slider__container,
-#input4:checked ~ .text__container-wrapper .text__container {
+#input4:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container {
     margin-left: -300%;
 }
-
-#input5:checked ~ .controls .control:nth-child(5)::after {
+#input4:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container
+    .text:nth-child(4) {
+    opacity: 1;
+}
+#input5:checked
+    ~ .text_and_controls-wrapper
+    .controls
+    .control:nth-child(5)::after {
     border-color: blue;
     background-color: blue;
 }
 #input5:checked ~ .slider__container-wrapper .slider__container,
-#input5:checked ~ .text__container-wrapper .text__container {
+#input5:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container {
     margin-left: -400%;
 }
-
+#input5:checked
+    ~ .text_and_controls-wrapper
+    .text__container-wrapper
+    .text__container
+    .text:nth-child(5) {
+    opacity: 1;
+}
 /* Inputs */
 .wrapper input {
     opacity: 0;
     pointer-events: none;
+}
+
+/*  */
+
+.text_and_controls-wrapper {
+    width: 60%;
+    /* height: 10%; */
+    margin: 0 auto;
+    display: flex;
+
+    justify-content: space-between;
 }
